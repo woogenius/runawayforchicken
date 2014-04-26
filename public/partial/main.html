@@ -1,0 +1,37 @@
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href>Runaway For Chicken
+          <img class="chickenlogo" src="img/chicken.png" alt="">
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	<li>
+          		<img class="hidden" id="loader" src="/img/loader.gif" alt="">
+          	</li>
+			<li>
+				<a href ng-click="ready()" id="ready">Ready!</a>
+			</li>
+          </ul>
+        </div>
+      </div>
+</div>
+<div class="container">
+	<div class="jumbotron center">
+		<h1>{{userdata.name}}님 <strong>{{userdata.winningStreak}}연승</strong></h1>
+		<h2>({{userdata.winNumber}}승 {{userdata.loseNumber}}패)</h2>	
+		<p>IP : {{userdata.ipAddress.address}}</p>
+	</div>
+	<div id="chat">
+		<h1 class="center">Chatting 접속자수 : {{cno}}명</h1>
+		<ul id="chatbox">
+		</ul>
+		<div class="sendBox center">
+			<input type="text" class="form-control" id="chatMessage" ng-model="message">
+			<a href ng-click="submitMessage()" class="btn btn-primary">Submit</a>
+		</div>
+	</div>
+</div>

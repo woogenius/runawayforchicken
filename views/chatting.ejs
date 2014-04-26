@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="./js/jquery-2.1.0.min.js"></script>
+		<script>
+			var ipAddress = "";
+			var socket = io.connect();
+			$(document).ready(function(){
+				//방에 접속
+				socket.emit('join', '');
+
+				$('#chat').append('<b>채팅에 참여하신 것을 환영합니다</b><br/><br/>');
+
+				socket.on('message', function(data){
+					//alert(data);
+					//var json = JSON.parse(data);
+
+					$('#chat').append('<b>' + data.id + ' 님의 채팅</b> : <br/>');
+					$('#chat').append(data.data + '<br/>');
+					
+					$("#chat").scrollTop($("#chat")[0].scrollHeight);
+				});
+
+				socket.on('push_ip_address', function(data){
+					ipAddress = data.ip;
+				});
+			});
+
+			function enter_chat(){
+				if (event.keyCode == 13) {   
+					chat();
+				}
+			}
+        
+			function chat(){
+				socket.emit('message', { "id": ipAddress , "data": $('#chat_content').val() });
+				$('#chat_content').val("");
+			}
+		</script>
+	</head>
+	<body>
+		<p id="roomCount" style="width:270px; border:1px solid black; margin-bottom:10px; background-color:#73d8ff; color:#494949; font-weight:bold; border-radius:5px; box-shadow: 2px 2px 5px #999;">현재 접속자 수 : 0 명</p>
+		<div style="border:1px solid black; padding:3px; border-radius:5px; box-shadow: 2px 2px 5px #999;">
+			<div style="width:250px; height:622px; text-align:left; overflow-x:hidden;overflow-y:scroll; margin-bottom:5px; border:1px solid black; padding:0 5px; border-radius:5px; box-shadow: 2px 2px 5px #999;" id="chat"></div>
+			<input type="text" size="32" id="chat_content" onkeydown="enter_chat()" style="border:1px solid black;" />
+			<input type="button" value="전송" onclick="chat()" style="padding:2px;" />
+		</div>
+	</body>
+</html>

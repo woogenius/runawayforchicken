@@ -1,0 +1,155 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+
+html, body{
+	width: 100%;
+	height: 100%;
+	margin:0;
+	padding:0;
+	font-family: 'Lobster', 'nanumgothic', 'cursive';
+}
+
+#ready {
+	text-align: center;
+	color: black;
+	height: 100px;
+	width: 200px;
+	background-color: #428bca;
+	font-size: 50px;
+	line-height: 100px;
+	vertical-align: middle;
+	padding-top: 0px;
+}
+
+.readyActive {
+	background-color: #d9534f !important;
+}
+
+.navbar {
+	height: 100px;
+}
+
+.navbar-brand {
+	padding-top: 0px !important;
+	line-height: 100px !important;
+	font-size: 50px;
+	vertical-align: middle;
+}
+
+.navbar-right {
+	height: 100px;
+}
+
+.chickenlogo {
+	height: 90px;
+	margin-left: -20px;
+}
+
+#chat {
+	background-color: rgb(56, 56, 56);
+	border-bottom-color: rgb(240, 241, 243);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(240, 241, 243);
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: rgb(240, 241, 243);
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: rgb(240, 241, 243);
+	border-radius: 10px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	bottom: 0px;
+	color: rgb(245, 245, 245);
+	display: block;
+	font-size: 16px;
+	line-height: 16px;
+	margin-bottom: 50px;
+	min-width: 210px;
+	opacity: 0.8999999761581421;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	right: 10px;
+	vertical-align: baseline;
+	width: 100%;
+	zoom: 1;
+}
+
+.sendBox {
+	width: 100%;
+}
+
+#chatMessage {
+	width: 60%;
+	display: inline;
+}
+
+#chatbox li {
+	margin: 15px 0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #555;
+	position: relative;
+	height: 25px;
+	font-size: 20px !important;
+	list-style: none;
+}
+
+#chatbox {
+	padding: 0px 100px;
+	height: 300px;
+	overflow: auto;
+}
+
+
+
+
+#chatUl {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.right {
+	float: right;
+}
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 50px auto;
+}
+
+.form-control {
+	margin: 10px 0px;
+}
+
+#introTitle {
+	text-align: center;
+	font-size: 30px;
+}
+
+.center {
+	text-align: center;
+}
+
+strong {
+	color: #d9534f;
+}
+
+.hidden {
+	display: none;
+}
+
+#loader {
+	width: 100px;
+	margin-right: 20px;
+}
