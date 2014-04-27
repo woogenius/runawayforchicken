@@ -38,6 +38,7 @@ var roomNumber = 1;
 var maxRoom = 4000;
 var matchingNum = new Array(maxRoom);
 
+var countUser = 0;
 
 for(var i=0; i<maxRoom; i++){
 	matchingNum[i] = 0;
@@ -47,18 +48,19 @@ var io = socketio.listen(server);
 io.set('log level', 2);
 
 io.sockets.on('connection', function (socket) {
-
+	countUser++;
+		io.sockets.emit('count', {count: countUser});
 	socket.on('login', function(data){
 		var address = socket.handshake.address;
-		console.log(data);
 		socket.set('ipAddress', address);
 		socket.set('name', data.name);
 		socket.set('whoareyou', data.whoareyou);
 		
 		socket.set('winNumber', 0);
 		socket.set('loseNumber', 0);
-		socket.set('winningStreak', 0);
+		socket.set('winningStreak', 0); 
 
+		console.log(countUser);
 		socket.emit('moveMainPage', {ipAddress: address, name: data.name, whoareyou: data.whoareyou});
 	});
 
@@ -105,10 +107,11 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	socket.on('disconnect', function(){
-		socket.emit('refreshPlayer', {player1: "", player2: ""});
+		countUser--;
 	});
 	
 	socket.on('score', function(data){
+		console.log("rno: " + data.roomNumber + ", pno: " + data.playerNumber + ", score: " +data.score);
 		if( data.playerNumber== 1){
 			io.sockets.in(data.roomNumber).emit('score1', {score: data.score, y: data.y});
 		}

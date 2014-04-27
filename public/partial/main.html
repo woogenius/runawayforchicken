@@ -2,7 +2,7 @@
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href>Runaway For Chicken
-          <img class="chickenlogo" src="img/chicken.png" alt="">
+          <img class="chickenlogo" src="img/chicken2.png" alt="">
           </a>
         </div>
         <div class="navbar-collapse collapse">
@@ -26,12 +26,12 @@
 		<p>IP : {{userdata.ipAddress.address}}</p>
 	</div>
 	<div id="chat">
-		<h1 class="center">Chatting 접속자수 : {{cno}}명</h1>
+		<h1 class="center">Chatting <span id="count">접속자수 : {{$parent.count}}</span></h1>
 		<ul id="chatbox">
 		</ul>
 		<div class="sendBox center">
 			<input type="text" class="form-control" id="chatMessage" ng-model="message">
-			<a href ng-click="submitMessage()" class="btn btn-primary">Submit</a>
+			<a href data-ng-click="submitMessage()" class="btn btn-primary">Submit</a>
 		</div>
 	</div>
 </div>

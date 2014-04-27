@@ -6,7 +6,6 @@ angular.module('rafc', ['ngRoute', 'rafc.controllers', 'rafc.filters']).config([
 		$routeProvider.when('/main', {templateUrl: 'partial/main.html', controller: 'MainPageCtrl'});
 		$routeProvider.when('/game/:rno/:uno', {templateUrl: 'partial/game.html', controller: 'GameCtrl'});
 
-
     	$routeProvider.otherwise({redirectTo: '/'});
 	}]);
 
