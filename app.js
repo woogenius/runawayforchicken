@@ -55,10 +55,10 @@ io.sockets.on('connection', function (socket) {
 		socket.set('ipAddress', address);
 		socket.set('name', data.name);
 		socket.set('whoareyou', data.whoareyou);
-		
+
 		socket.set('winNumber', 0);
 		socket.set('loseNumber', 0);
-		socket.set('winningStreak', 0); 
+		socket.set('winningStreak', 0);
 
 		console.log(countUser);
 		socket.emit('moveMainPage', {ipAddress: address, name: data.name, whoareyou: data.whoareyou});
@@ -109,7 +109,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('disconnect', function(){
 		countUser--;
 	});
-	
+
 	socket.on('score', function(data){
 		console.log("rno: " + data.roomNumber + ", pno: " + data.playerNumber + ", score: " +data.score);
 		if( data.playerNumber== 1){
