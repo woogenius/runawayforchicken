@@ -45,6 +45,7 @@ for(var i=0; i<maxRoom; i++){
 }
 
 var io = socketio.listen(server);
+io.set('transports', [ 'xhr-polling', 'jsonp-polling', 'htmlfile' ]);
 io.set('log level', 2);
 
 io.sockets.on('connection', function (socket) {
