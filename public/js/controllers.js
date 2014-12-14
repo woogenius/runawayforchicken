@@ -2,7 +2,7 @@
 
 angular.module('rafc.controllers', [])
   .controller('MainCtrl', ['$scope', '$rootScope', '$window', '$location', function ($scope, $rootScope, $window, $location) {
-      $rootScope.socket = io.connect();
+      $rootScope.socket = io.connect(location.hostname, {path: location.pathname});
       $rootScope.count = 0;
       var socket = $rootScope.socket;
       $scope.user = {};
